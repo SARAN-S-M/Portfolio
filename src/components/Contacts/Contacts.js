@@ -140,6 +140,10 @@ function Contacts() {
                     message: message,
                 };
 
+                console.log(contactsData.sheetAPI);
+                console.log("**************");
+                console.log(responseData);
+
                 axios.post(contactsData.sheetAPI, responseData).then((res) => {
                     console.log('success');
                     setSuccess(true);
@@ -149,7 +153,8 @@ function Contacts() {
                     setEmail('');
                     setMessage('');
                     setOpen(false);
-                });
+                }
+            );
             } else {
                 setErrMsg('Invalid email');
                 setOpen(true);
@@ -176,7 +181,7 @@ function Contacts() {
                                     Name
                                 </label>
                                 <input
-                                    placeholder='John Doe'
+                                    placeholder='Enter your name....'
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     type='text'
@@ -192,7 +197,7 @@ function Contacts() {
                                     Email
                                 </label>
                                 <input
-                                    placeholder='John@doe.com'
+                                    placeholder='example@gmail.com'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     type='email'
